@@ -1,4 +1,4 @@
-from Factory import factory
+from ProjetoExemplo.Factory import factory
 from Classes.Pessoa import Pessoa
 from Classes.Professor import Professor
 from random import choices
