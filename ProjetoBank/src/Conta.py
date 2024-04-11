@@ -3,19 +3,39 @@ from faker import Faker
 fake = Faker('pt_BR')
 
 
-class ContaBancaria(ABC):
+class Conta(ABC):
     def __init__(self) -> None:
         super().__init__()
         self.__numeroConta:str=fake.aba()
         self.__nomeCliente:str =""
         self.__saldo:float = 0.0
         
-  
-    def sacar(self)->float:
-        ...
+    @abstractmethod
+    def sacar(self,valor:float)->float:
+       pass
+   
+    @abstractmethod   
+    def depositar(self,valor:float)->float:
+        pass
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
+    @saldo.setter
+    def saldo(self,valor):
+        if isinstance(valor,float) and valor is not None:
+            if valor > 0:
+                self.__saldo +=valor
+            else:
+                raise Exception("Insira um preço válido")
+
+        else:
+            raise Exception("Insira um preço válido")
+    @property
+    def numeroConta(self)->float:
+        return self.__numeroConta
     
-    def depositar(self)->float:
-        ...
 
     def setNome(self,nome:str)->None:
         if self.__validaNome(nome):
@@ -33,7 +53,7 @@ class ContaBancaria(ABC):
                 valido = False 
                 break
         return valido
-
+    @abstractmethod 
     def __str__(self) -> str:
-        return f"Numero Conta {self.__numeroConta}\n"
+       pass
 

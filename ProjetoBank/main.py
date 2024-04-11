@@ -1,4 +1,4 @@
-from src.Conta import ContaBancaria
+from src.ContaBancaria import ContaBancaria
 
 
 
@@ -6,4 +6,7 @@ from src.Conta import ContaBancaria
 if __name__=="__main__":
     c = ContaBancaria()
     c.setNome("Anderson Simplicio")
+    c.depositar(12.5)
+    c.sacar(5)
+    c.saldo = "-500"
     print(c)
