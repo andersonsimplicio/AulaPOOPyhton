@@ -25,13 +25,8 @@ class Conta(ABC):
     @saldo.setter
     def saldo(self,valor):
         if isinstance(valor,float) and valor is not None:
-            if valor > 0:
-                self.__saldo +=valor
-            else:
-                raise Exception("Insira um preço válido")
-
-        else:
-            raise Exception("Insira um preço válido")
+            self.__saldo=valor
+            
     @property
     def numeroConta(self)->float:
         return self.__numeroConta

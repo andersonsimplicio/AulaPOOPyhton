@@ -8,7 +8,7 @@ class ContaBancaria(Conta):
     
     def sacar(self,valor:float)->float:
         if self.saldo > valor:
-            self.saldo-=valor
+            self.saldo = self.saldo-valor
             return valor
         else:
             raise Exception("Saldo Insuficiênte!")
